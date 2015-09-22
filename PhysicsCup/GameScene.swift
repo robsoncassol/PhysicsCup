@@ -27,7 +27,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         sprite.runAction(SKAction.rotateByAngle(CGFloat(M_PI_2), duration: 0))
     }
     
-    override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         for touch: AnyObject in touches {
             let sprite = StarNode.star(touch.locationInNode(self))
             self.addChild(sprite)
@@ -43,7 +43,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-    func didBeginContact(contact: SKPhysicsContact!) {
+    func didBeginContact(contact: SKPhysicsContact) {
         self.shouldPlaySound = (contact.bodyA.node?.name == "star" && contact.bodyB.node?.name == "star")
     }
 }

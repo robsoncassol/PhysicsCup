@@ -13,8 +13,8 @@ class StarNode: SKSpriteNode, SKPhysicsContactDelegate {
     class func star(location: CGPoint) -> StarNode {
         let sprite = StarNode(imageNamed:"star.png")
         
-        sprite.xScale = 0.075
-        sprite.yScale = 0.075
+        sprite.xScale = 1.5
+        sprite.yScale = 1.5
         sprite.position = location
         
         sprite.physicsBody = SKPhysicsBody(texture: SKTexture(imageNamed: "star.png"), size: sprite.size)
